@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+  --okx-black: #000000;
+  --okx-surface: #0b0b0b;
+  --okx-surface-2: #141414;
+  --okx-border: #1f1f1f;
+  --okx-border-strong: #2a2a2a;
+  --okx-text: #ffffff;
+  --okx-text-muted: #8a8d9c;
+  --okx-text-dim: #6a6d7a;
+  --okx-accent: #c7f284;
+  --okx-accent-hover: #d8ff99;
+  --okx-yellow: #ffcf00;
+  --okx-up: #00ba5a;
+  --okx-down: #ff5353;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-okx-black: var(--okx-black);
+  --color-okx-surface: var(--okx-surface);
+  --color-okx-surface-2: var(--okx-surface-2);
+  --color-okx-border: var(--okx-border);
+  --color-okx-border-strong: var(--okx-border-strong);
+  --color-okx-text: var(--okx-text);
+  --color-okx-text-muted: var(--okx-text-muted);
+  --color-okx-text-dim: var(--okx-text-dim);
+  --color-okx-accent: var(--okx-accent);
+  --color-okx-accent-hover: var(--okx-accent-hover);
+  --color-okx-yellow: var(--okx-yellow);
+  --color-okx-up: var(--okx-up);
+  --color-okx-down: var(--okx-down);
+  --font-sans: var(--font-inter);
+}
+
+html, body {
+  background: var(--okx-black);
+  color: var(--okx-text);
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.marquee-track {
+  animation: marquee 40s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.okx-gradient-hero {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(199, 242, 132, 0.12), transparent 55%),
+    radial-gradient(circle at 80% 30%, rgba(255, 207, 0, 0.08), transparent 60%),
+    linear-gradient(180deg, #000 0%, #070707 100%);
+}
+
+.okx-card-gradient {
+  background: linear-gradient(160deg, #141414 0%, #0b0b0b 100%);
+}
+
+.okx-btn-primary {
+  background: var(--okx-accent);
+  color: #000;
+  transition: background 0.15s ease;
+}
+.okx-btn-primary:hover { background: var(--okx-accent-hover); }
+
+.okx-btn-ghost {
+  background: transparent;
+  color: #fff;
+  border: 1px solid var(--okx-border-strong);
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.okx-btn-ghost:hover { background: rgba(255,255,255,0.06); border-color: #3a3a3a; }
+
+.nav-link {
+  color: #fff;
+  transition: color 0.15s ease;
+}
+.nav-link:hover { color: var(--okx-accent); }
+
+/* hide scrollbar for market strip */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
