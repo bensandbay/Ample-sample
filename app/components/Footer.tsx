@@ -1,65 +1,68 @@
+import Link from "next/link";
 import OkxLogo from "./OkxLogo";
 
-const COLUMNS: { heading: string; items: string[] }[] = [
+type FooterItem = { label: string; href?: string };
+
+const COLUMNS: { heading: string; items: FooterItem[] }[] = [
   {
     heading: "About us",
     items: [
-      "About OKX",
-      "Careers",
-      "Announcements",
-      "Press",
-      "Proof of Reserves",
-      "Legal",
-      "Privacy",
+      { label: "About OKX" },
+      { label: "Careers" },
+      { label: "Announcements" },
+      { label: "Press" },
+      { label: "Proof of Reserves" },
+      { label: "Legal" },
+      { label: "Privacy" },
     ],
   },
   {
     heading: "Products",
     items: [
-      "Buy crypto",
-      "Markets",
-      "Spot trading",
-      "Margin trading",
-      "Futures",
-      "Earn",
-      "Web3 Wallet",
-      "NFT Marketplace",
+      { label: "Buy crypto" },
+      { label: "Markets" },
+      { label: "Spot trading" },
+      { label: "Margin trading" },
+      { label: "Futures" },
+      { label: "Earn" },
+      { label: "Web3 Wallet" },
+      { label: "NFT Marketplace" },
     ],
   },
   {
     heading: "Services",
     items: [
-      "Fees",
-      "VIP program",
-      "Referral program",
-      "API",
-      "OKX Ventures",
-      "Listing application",
-      "P2P merchant",
+      { label: "Fees" },
+      { label: "VIP program" },
+      { label: "Referral program" },
+      { label: "API" },
+      { label: "OKX Ventures" },
+      { label: "Listing application" },
+      { label: "P2P merchant" },
     ],
   },
   {
     heading: "Learn",
     items: [
-      "Learn crypto",
-      "Trading bots",
-      "Market insights",
-      "Glossary",
-      "Help center",
-      "Submit request",
-      "Compliance",
+      { label: "Learn crypto" },
+      { label: "Trading bots", href: "/trading-bots" },
+      { label: "Market insights" },
+      { label: "Glossary" },
+      { label: "Help center" },
+      { label: "Submit request" },
+      { label: "Compliance" },
     ],
   },
   {
     heading: "Community",
     items: [
-      "Twitter",
-      "Discord",
-      "Telegram",
-      "YouTube",
-      "Instagram",
-      "LinkedIn",
-      "Reddit",
+      { label: "Twitter" },
+      { label: "Discord" },
+      { label: "Telegram" },
+      { label: "YouTube" },
+      { label: "Instagram" },
+      { label: "LinkedIn" },
+      { label: "Reddit" },
     ],
   },
 ];
@@ -76,13 +79,22 @@ export default function Footer() {
               <p className="text-white text-[13px] font-semibold">{col.heading}</p>
               <ul className="mt-4 space-y-3">
                 {col.items.map((i) => (
-                  <li key={i}>
-                    <a
-                      href="#"
-                      className="text-okx-text-muted text-[13px] hover:text-white transition-colors"
-                    >
-                      {i}
-                    </a>
+                  <li key={i.label}>
+                    {i.href ? (
+                      <Link
+                        href={i.href}
+                        className="text-okx-text-muted text-[13px] hover:text-white transition-colors"
+                      >
+                        {i.label}
+                      </Link>
+                    ) : (
+                      <a
+                        href="#"
+                        className="text-okx-text-muted text-[13px] hover:text-white transition-colors"
+                      >
+                        {i.label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>

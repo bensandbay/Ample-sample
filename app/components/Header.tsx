@@ -1,14 +1,16 @@
+import Link from "next/link";
 import OkxLogo from "./OkxLogo";
 
-const NAV = [
-  "Buy crypto",
-  "Markets",
-  "Trade",
-  "Futures",
-  "Earn",
-  "Web3",
-  "Learn",
-  "Institutional",
+const NAV: { label: string; href: string }[] = [
+  { label: "Buy crypto", href: "#" },
+  { label: "Markets", href: "#" },
+  { label: "Trade", href: "#" },
+  { label: "Futures", href: "#" },
+  { label: "Bots", href: "/trading-bots" },
+  { label: "Earn", href: "#" },
+  { label: "Web3", href: "#" },
+  { label: "Learn", href: "#" },
+  { label: "Institutional", href: "#" },
 ];
 
 export default function Header() {
@@ -16,14 +18,14 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-okx-black/95 backdrop-blur border-b border-okx-border">
       <div className="mx-auto max-w-[1440px] flex items-center justify-between h-14 px-4 md:px-6">
         <div className="flex items-center gap-8">
-          <a href="#" aria-label="OKX home" className="flex items-center text-white">
+          <Link href="/" aria-label="OKX home" className="flex items-center text-white">
             <OkxLogo className="h-5 w-auto text-white" />
-          </a>
+          </Link>
           <nav className="hidden lg:flex items-center gap-6 text-[14px] font-medium">
             {NAV.map((item) => (
-              <a key={item} href="#" className="nav-link">
-                {item}
-              </a>
+              <Link key={item.label} href={item.href} className="nav-link">
+                {item.label}
+              </Link>
             ))}
           </nav>
         </div>
