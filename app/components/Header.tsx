@@ -1,14 +1,18 @@
+import Link from "next/link";
 import OkxLogo from "./OkxLogo";
 
-const NAV = [
-  "Buy crypto",
-  "Markets",
-  "Trade",
-  "Futures",
-  "Earn",
-  "Web3",
-  "Learn",
-  "Institutional",
+type NavItem = { label: string; href: string };
+
+const NAV: NavItem[] = [
+  { label: "Buy crypto", href: "#" },
+  { label: "Markets", href: "#" },
+  { label: "Trade", href: "#" },
+  { label: "Futures", href: "#" },
+  { label: "Earn", href: "#" },
+  { label: "Web3", href: "#" },
+  { label: "Learn", href: "#" },
+  { label: "Institutional", href: "#" },
+  { label: "humanbehavior", href: "/humanbehavior" },
 ];
 
 export default function Header() {
@@ -20,11 +24,17 @@ export default function Header() {
             <OkxLogo className="h-5 w-auto text-white" />
           </a>
           <nav className="hidden lg:flex items-center gap-6 text-[14px] font-medium">
-            {NAV.map((item) => (
-              <a key={item} href="#" className="nav-link">
-                {item}
-              </a>
-            ))}
+            {NAV.map((item) =>
+              item.href.startsWith("/") ? (
+                <Link key={item.label} href={item.href} className="nav-link">
+                  {item.label}
+                </Link>
+              ) : (
+                <a key={item.label} href={item.href} className="nav-link">
+                  {item.label}
+                </a>
+              )
+            )}
           </nav>
         </div>
 
