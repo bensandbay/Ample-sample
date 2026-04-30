@@ -1,95 +1,119 @@
 @import "tailwindcss";
 
 :root {
-  --background: #000000;
-  --foreground: #ffffff;
-  --okx-black: #000000;
-  --okx-surface: #0b0b0b;
-  --okx-surface-2: #141414;
-  --okx-border: #1f1f1f;
-  --okx-border-strong: #2a2a2a;
-  --okx-text: #ffffff;
-  --okx-text-muted: #8a8d9c;
-  --okx-text-dim: #6a6d7a;
-  --okx-accent: #c7f284;
-  --okx-accent-hover: #d8ff99;
-  --okx-yellow: #ffcf00;
-  --okx-up: #00ba5a;
-  --okx-down: #ff5353;
+  --background: #ffffff;
+  --foreground: #0b1e3f;
+
+  --lpx-bg: #ffffff;
+  --lpx-bg-alt: #f4f6fa;
+  --lpx-surface: #ffffff;
+  --lpx-ink: #0b1e3f;
+  --lpx-ink-2: #15315e;
+  --lpx-ink-muted: #4a5872;
+  --lpx-ink-dim: #7a8499;
+  --lpx-border: #e3e6ec;
+  --lpx-border-strong: #c9cfd8;
+  --lpx-accent: #ff6b00;
+  --lpx-accent-hover: #ff8a33;
+  --lpx-on-dark: #ffffff;
+  --lpx-on-dark-muted: rgba(255, 255, 255, 0.72);
+  --lpx-on-dark-dim: rgba(255, 255, 255, 0.55);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-okx-black: var(--okx-black);
-  --color-okx-surface: var(--okx-surface);
-  --color-okx-surface-2: var(--okx-surface-2);
-  --color-okx-border: var(--okx-border);
-  --color-okx-border-strong: var(--okx-border-strong);
-  --color-okx-text: var(--okx-text);
-  --color-okx-text-muted: var(--okx-text-muted);
-  --color-okx-text-dim: var(--okx-text-dim);
-  --color-okx-accent: var(--okx-accent);
-  --color-okx-accent-hover: var(--okx-accent-hover);
-  --color-okx-yellow: var(--okx-yellow);
-  --color-okx-up: var(--okx-up);
-  --color-okx-down: var(--okx-down);
+  --color-lpx-bg: var(--lpx-bg);
+  --color-lpx-bg-alt: var(--lpx-bg-alt);
+  --color-lpx-surface: var(--lpx-surface);
+  --color-lpx-ink: var(--lpx-ink);
+  --color-lpx-ink-2: var(--lpx-ink-2);
+  --color-lpx-ink-muted: var(--lpx-ink-muted);
+  --color-lpx-ink-dim: var(--lpx-ink-dim);
+  --color-lpx-border: var(--lpx-border);
+  --color-lpx-border-strong: var(--lpx-border-strong);
+  --color-lpx-accent: var(--lpx-accent);
+  --color-lpx-accent-hover: var(--lpx-accent-hover);
   --font-sans: var(--font-inter);
 }
 
 html, body {
-  background: var(--okx-black);
-  color: var(--okx-text);
+  background: var(--lpx-bg);
+  color: var(--lpx-ink);
   font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-.marquee-track {
-  animation: marquee 40s linear infinite;
-}
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-.okx-gradient-hero {
+.lpx-hero-bg {
   background:
-    radial-gradient(circle at 20% 20%, rgba(199, 242, 132, 0.12), transparent 55%),
-    radial-gradient(circle at 80% 30%, rgba(255, 207, 0, 0.08), transparent 60%),
-    linear-gradient(180deg, #000 0%, #070707 100%);
+    radial-gradient(1100px 520px at 85% -10%, rgba(255, 107, 0, 0.18), transparent 60%),
+    radial-gradient(900px 480px at 10% 110%, rgba(21, 49, 94, 0.55), transparent 60%),
+    linear-gradient(180deg, #08172f 0%, #0b1e3f 60%, #0b1e3f 100%);
 }
 
-.okx-card-gradient {
-  background: linear-gradient(160deg, #141414 0%, #0b0b0b 100%);
+.lpx-section-alt {
+  background: var(--lpx-bg-alt);
 }
 
-.okx-btn-primary {
-  background: var(--okx-accent);
-  color: #000;
+.lpx-btn-primary {
+  background: var(--lpx-accent);
+  color: #0b1e3f;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.lpx-btn-primary:hover { background: var(--lpx-accent-hover); }
+
+.lpx-btn-dark {
+  background: var(--lpx-ink);
+  color: #fff;
   transition: background 0.15s ease;
 }
-.okx-btn-primary:hover { background: var(--okx-accent-hover); }
+.lpx-btn-dark:hover { background: var(--lpx-ink-2); }
 
-.okx-btn-ghost {
+.lpx-btn-outline-light {
   background: transparent;
   color: #fff;
-  border: 1px solid var(--okx-border-strong);
+  border: 1px solid rgba(255,255,255,0.35);
   transition: background 0.15s ease, border-color 0.15s ease;
 }
-.okx-btn-ghost:hover { background: rgba(255,255,255,0.06); border-color: #3a3a3a; }
+.lpx-btn-outline-light:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.6);
+}
 
-.nav-link {
-  color: #fff;
+.lpx-btn-outline-dark {
+  background: transparent;
+  color: var(--lpx-ink);
+  border: 1px solid var(--lpx-border-strong);
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.lpx-btn-outline-dark:hover {
+  background: var(--lpx-bg-alt);
+  border-color: var(--lpx-ink);
+}
+
+.lpx-link {
+  color: var(--lpx-ink);
   transition: color 0.15s ease;
 }
-.nav-link:hover { color: var(--okx-accent); }
+.lpx-link:hover { color: var(--lpx-accent); }
 
-/* hide scrollbar for market strip */
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.lpx-link-light {
+  color: rgba(255,255,255,0.85);
+  transition: color 0.15s ease;
+}
+.lpx-link-light:hover { color: #fff; }
+
+.lpx-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.lpx-divider {
+  height: 1px;
+  background: var(--lpx-border);
+}
