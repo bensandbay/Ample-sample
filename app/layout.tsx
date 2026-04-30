@@ -9,9 +9,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "OKX | Buy Bitcoin, Ethereum, and Crypto Instantly",
+  title: "LPX Partners | Logistics & Supply Chain Investments and Consulting",
   description:
-    "OKX is a leading cryptocurrency exchange offering 350+ tokens, with deep liquidity on spot and derivatives. Trade crypto, earn yield, and build with Web3.",
+    "LPX Partners invests in and advises companies driving the future of logistics and supply chain — combining growth capital with deep operating experience.",
 };
 
 export default function RootLayout({
@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-okx-black text-white">
+      <body className="min-h-full flex flex-col bg-lpx-bg text-lpx-ink">
         {children}
       </body>
     </html>

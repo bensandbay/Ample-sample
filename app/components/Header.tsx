@@ -1,51 +1,42 @@
-import OkxLogo from "./OkxLogo";
+import LpxLogo from "./LpxLogo";
 
 const NAV = [
-  "Buy crypto",
-  "Markets",
-  "Trade",
-  "Futures",
-  "Earn",
-  "Web3",
-  "Learn",
-  "Institutional",
+  { label: "Home", href: "#" },
+  { label: "About", href: "#about" },
+  { label: "Investments", href: "#investments" },
+  { label: "Consulting", href: "#consulting" },
+  { label: "Team", href: "#team" },
+  { label: "Locations", href: "#locations" },
 ];
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 bg-okx-black/95 backdrop-blur border-b border-okx-border">
-      <div className="mx-auto max-w-[1440px] flex items-center justify-between h-14 px-4 md:px-6">
-        <div className="flex items-center gap-8">
-          <a href="#" aria-label="OKX home" className="flex items-center text-white">
-            <OkxLogo className="h-5 w-auto text-white" />
-          </a>
-          <nav className="hidden lg:flex items-center gap-6 text-[14px] font-medium">
-            {NAV.map((item) => (
-              <a key={item} href="#" className="nav-link">
-                {item}
-              </a>
-            ))}
-          </nav>
-        </div>
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-lpx-border">
+      <div className="mx-auto max-w-[1280px] flex items-center justify-between h-16 px-4 md:px-8">
+        <a href="#" aria-label="LPX Partners home" className="flex items-center">
+          <LpxLogo className="h-6 w-auto" />
+        </a>
+
+        <nav className="hidden lg:flex items-center gap-7 text-[14px] font-medium text-lpx-ink">
+          {NAV.map((item) => (
+            <a key={item.label} href={item.href} className="lpx-link">
+              {item.label}
+            </a>
+          ))}
+        </nav>
 
         <div className="flex items-center gap-2">
           <a
-            href="#"
-            className="hidden sm:inline-flex h-9 items-center px-3 text-[13px] text-white/80 hover:text-white"
+            href="#contact"
+            className="lpx-btn-primary inline-flex h-10 items-center rounded-md px-4 text-[13px] font-semibold"
           >
-            Log in
-          </a>
-          <a
-            href="#"
-            className="okx-btn-primary hidden sm:inline-flex h-9 items-center rounded-md px-4 text-[13px] font-semibold"
-          >
-            Sign up
+            Contact
           </a>
           <button
-            aria-label="More"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-md text-white/70 hover:text-white hover:bg-white/5"
+            aria-label="Open menu"
+            className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-md text-lpx-ink hover:bg-lpx-bg-alt"
           >
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden>
               <path d="M3 6h18v2H3zM3 11h18v2H3zM3 16h18v2H3z" />
             </svg>
           </button>
