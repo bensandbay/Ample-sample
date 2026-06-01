@@ -93,3 +93,26 @@ html, body {
 /* hide scrollbar for market strip */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Accessibility: improve focus-visible styles */
+.okx-btn-primary:focus-visible,
+.okx-btn-ghost:focus-visible,
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--okx-accent);
+  outline-offset: 2px;
+}
+
+/* Utility: screen-reader only label class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

@@ -1,17 +1,12 @@
-import OkxLogo from "./OkxLogo";
+"use client";
 
-const NAV = [
-  "Buy crypto",
-  "Markets",
-  "Trade",
-  "Futures",
-  "Earn",
-  "Web3",
-  "Learn",
-  "Institutional",
-];
+import { useState } from "react";
+import OkxLogo from "./OkxLogo";
+import { NAV } from "./nav";
+import MobileMenu from "./MobileMenu";
 
 export default function Header() {
+  const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 bg-okx-black/95 backdrop-blur border-b border-okx-border">
       <div className="mx-auto max-w-[1440px] flex items-center justify-between h-14 px-4 md:px-6">
@@ -42,8 +37,12 @@ export default function Header() {
             Sign up
           </a>
           <button
-            aria-label="More"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-md text-white/70 hover:text-white hover:bg-white/5"
+            type="button"
+            aria-label="Open menu"
+            aria-controls="mobile-menu-panel"
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+            className="inline-flex h-9 w-9 items-center justify-center rounded-md text-white/70 hover:text-white hover:bg-white/5 lg:hidden"
           >
             <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden>
               <path d="M3 6h18v2H3zM3 11h18v2H3zM3 16h18v2H3z" />
@@ -51,6 +50,7 @@ export default function Header() {
           </button>
         </div>
       </div>
+      <MobileMenu open={open} onClose={() => setOpen(false)} />
     </header>
   );
 }

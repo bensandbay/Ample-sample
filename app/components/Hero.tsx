@@ -20,7 +20,9 @@ export default function Hero() {
             className="mt-8 flex flex-col sm:flex-row gap-3 max-w-md"
             action="#"
           >
+            <label htmlFor="hero-contact" className="sr-only">Email / Phone</label>
             <input
+              id="hero-contact"
               type="email"
               placeholder="Email / Phone"
               className="flex-1 h-12 rounded-md bg-okx-surface-2 border border-okx-border-strong px-4 text-[14px] text-white placeholder:text-okx-text-dim focus:outline-none focus:border-okx-accent"
